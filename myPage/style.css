@@ -36,6 +36,7 @@ body,html{
     padding:15px;
     display:grid;
     grid-template: 1fr / 1fr  minmax(auto,300px) minmax(auto,1100px) 1fr;
+    align-items: center;
 }
 .header__logo {
     width:70px;
@@ -53,23 +54,34 @@ body,html{
     justify-items: end;
 }
 .header__link {
+    color:#fff;
+    font-size: 18px;
 }
 .header__burger {
 }
 .main {
-    
-    
+    display:grid;
+    grid-area:main;
+    padding:30px 15px;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr; 
+
 }
 .sidebar {
-    
+    grid-column: 2/3;
+    background-color: #7a956b;
+    padding:15px;
 }
 .sidebar__menu {
+    
 }
 .sidebar__list {
 }
 .sidebar__link {
+
 }
 .content {
+    grid-column: 3/4;
+    padding-left: 30px;
 }
 .content__title {
 }

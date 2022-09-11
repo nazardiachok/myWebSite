@@ -23,6 +23,7 @@ body,html{
 }
 .wrapper{ 
         display: grid;
+        background-color:rgb(122, 81, 40);
         min-height: 100%;
         grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
         grid-template-areas:
@@ -69,7 +70,8 @@ body,html{
 .sidebar {
     grid-column: 2/3;
     background-color: #7a956b;
-    padding:15px;
+    padding: 20px;
+   
 }
 .sidebar__menu {
     
@@ -84,31 +86,96 @@ body,html{
     padding-left: 30px;
 }
 .content__title {
+    font-size: 38px;
+    color:white
 }
 .content__gallery {
 }
 .gallery {
+    
 }
 .gallery__title {
+    font-size: 28px;
+    color:white;
 }
 .gallery__items {
+    display:grid;
+    gap:10px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr))/* auto-fit füllt automatisch die Platz mit Bildern je nach Bildschirm-breite. Ähnlich wie flex-wrap:wrap */
+
 }
-.gallery__item {
+/* .gallery__item {
+    width:100%;
+    height:100%;
+    object-fit:cover; }   */
+    /* object-fit: ... macht die bilder adaptiever. Warum mit diesem code sind meine große bilder niccht genug hoch, aber mit dem von unten- schon*/
+
+    .gallery__item {
+    position:relative;
+    padding: 0px 0px 85% 0px;
 }
+    .gallery__item img {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }/* object-fit: ... macht die bilder adaptiever }*/
+
+
 .gallery__item_big {
+    grid-column: span 2;
+    grid-row: span 2;
 }
 .content__products {
 }
 .products {
 }
 .products__title {
+    font-size: 38px;
+    color:white;
+    padding:20px 10px;
 }
+
 .ptoducts__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    column-gap:30px;
+    row-gap:50px;
 }
-.produkt__item {
+.products__item {
+    width:100%;
+    height:100%;
+    object-fit:fill;
 }
 .products__image {
 }
+
+/* .ptoducts__items {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    column-gap:30px;
+    row-gap:50px;
+}
+.products__item {
+    display:grid;
+    grid-auto-flow:row;
+    grid-template: auto 1fr minmax(40px, auto) / 1fr;
+
+}
+.products__image {
+    position:relative;
+    padding: 0px 0px 90% 0px;
+    margin: 0px 0px 20px 0px;
+}
+.products__image img {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+} */
 .products__name {
 }
 .products__button {

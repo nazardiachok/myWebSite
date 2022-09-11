@@ -60,36 +60,63 @@ body,html{
 }
 .header__burger {
 }
-.main {
-    display:grid;
-    grid-area:main;
-    padding:30px 15px;
-    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr; 
 
+@media (max-width:992px) {
+    .header__list{
+        display:none;
+    }
 }
+
+.main {
+    padding:30px 15px;
+
+    /* display:grid;
+    grid-area:main;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr; 
+    // це стандартно якщо без @media(min-width: 992px). 
+    А коли хочемо мобільну версію .переносимо їх одразу тудию. Це означає що по стандарту все йде зверху до низу,і сайдбар буде збоку тільки тоді коли ширина буде мін 992px(тільки з цього моменту активується grid-template яку ми створили у main. */ 
+}
+
 .sidebar {
-    grid-column: 2/3;
+   
     background-color: #7a956b;
     padding: 20px;
+    margin:0 0 30px 0;
    
 }
 .sidebar__menu {
     
 }
-.sidebar__list {
+.sidebar__list li {
+    margin:0 0 30px 0;
 }
 .sidebar__link {
+    color:  #fff;
+    font-size: 20px;
 
 }
-.content {
-    grid-column: 3/4;
-    padding-left: 30px;
-}
+.content {}
 .content__title {
     font-size: 38px;
     color:white
 }
 .content__gallery {
+    margin-bottom: 30px;
+}
+@media(min-width: 992px){
+    .main{
+    grid-area: main;
+    display: grid;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr;
+    }
+    .sidebar{
+        grid-column: 2/3;
+        margin:0px;
+    }
+    .content {
+        grid-column: 3/4;
+        padding-left: 30px;
+    }
 }
 .gallery {
     
@@ -97,6 +124,7 @@ body,html{
 .gallery__title {
     font-size: 28px;
     color:white;
+    padding-top:20px
 }
 .gallery__items {
     display:grid;
@@ -144,9 +172,12 @@ body,html{
     row-gap:50px;
 }
 .products__item {
+    display:grid;
     width:100%;
     height:100%;
     object-fit:fill;
+    grid-auto-flow:row;
+    grid-template: auto 1fr minmax(40px, auto) / 1fr;
 }
 .products__image {
 }
@@ -177,14 +208,34 @@ body,html{
     object-fit:cover;
 } */
 .products__name {
+    font-size: 24px;
+    color:#fff;
+    line-height: 30px;
+    margin:0px 0px 20px 0px;
 }
 .products__button {
+    line-height: 40px;
+    justify-self: start;
+    color:white;
+    background-color: #77608d;
+    padding:0px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 .footer {
-    background-color:aquamarine;
-    
+    background-color:#77608d;
+    display:grid;
+    grid-area:footer;
+   padding:15px;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr; 
+    align-items:center
+
 }
 .footer__copy {
+    grid-column: 2/3;
 }
 .footer__text {
+    text-align:right;
+    grid-column:3/4
 }
